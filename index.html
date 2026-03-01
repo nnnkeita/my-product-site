@@ -170,6 +170,10 @@
             <li>✓ 検索可能</li>
             <li>✓ 自動バックアップ</li>
           </ul>
+          <div style="display:flex;gap:8px;margin-top:auto">
+            <button class="btn secondary" style="flex:1" onclick="downloadApp('KirokuJournal')">無料ダウンロード</button>
+            <button class="btn" style="flex:1" onclick="openCheckout('KirokuJournal')">Pro解除 ¥500</button>
+          </div>
         </article>
 
         <!-- Image Digest -->
@@ -182,6 +186,10 @@
             <li>✓ HEIC・PNG対応</li>
             <li>✓ 品質設定可</li>
           </ul>
+          <div style="display:flex;gap:8px;margin-top:auto">
+            <button class="btn secondary" style="flex:1" onclick="downloadApp('ImageDigest')">無料ダウンロード</button>
+            <button class="btn" style="flex:1" onclick="openCheckout('ImageDigest')">Pro解除 ¥500</button>
+          </div>
         </article>
 
         <!-- MemoShot -->
@@ -261,6 +269,52 @@
       if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth'}); history.pushState(null,'','#'+id); }
     });
   });
+
+  // API settings
+  const API_URL = 'https://n-productivity-api.vercel.app';
+
+  async function openCheckout(appName) {
+    const email = prompt('メールアドレスを入力してください:');
+    if (!email) return;
+
+    try {
+      const response = await fetch(API_URL + '/api/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email,
+          appName,
+          successUrl: window.location.href,
+          cancelUrl: window.location.href,
+        }),
+      });
+
+      const data = await response.json();
+      if (data.url) {
+        window.location.href = data.url;
+      } else {
+        alert('エラー: ' + (data.error || 'チェックアウトが失敗しました'));
+      }
+    } catch (error) {
+      console.error('Checkout error:', error);
+      alert('接続エラーが発生しました。しばらく後に再度お試しください。');
+    }
+  }
+
+  function downloadApp(appName) {
+    const links = {
+      'DesktopOrganizer': 'https://github.com/nnnkeita/my-product-site/releases/download/v1.0.0/DesktopOrganizer2.zip',
+      'KirokuJournal': '#',
+      'ImageDigest': '#',
+    };
+    
+    const url = links[appName];
+    if (url && url !== '#') {
+      window.location.href = url;
+    } else {
+      alert('ダウンロードリンクは準備中です。');
+    }
+  }
 </script>
 </body>
 </html>
