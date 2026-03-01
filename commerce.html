@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>特定商取引法に基づく表記</title>
+    <!-- Google Fonts: Noto Serif JP -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Noto Serif JP', serif;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-gray-50 py-12 px-4">
+    <div class="max-w-3xl mx-auto">
+        <div class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden">
+            <!-- Header -->
+            <div class="bg-slate-800 p-8 text-center">
+                <h1 class="text-2xl font-bold text-white tracking-wider">特定商取引法に基づく表記</h1>
+            </div>
+
+            <div class="p-8">
+                <dl class="text-sm leading-relaxed divide-y divide-gray-100">
+                    <!-- 事業者名 -->
+                    <div class="py-5 grid grid-cols-1 md:grid-cols-3 gap-2">
+                        <dt class="font-bold text-gray-900">販売事業者名</dt>
+                        <dd class="md:col-span-2 text-gray-700">西原 啓太</dd>
+                    </div>
+
+                    <!-- 代表者 -->
+                    <div class="py-5 grid grid-cols-1 md:grid-cols-3 gap-2">
+                        <dt class="font-bold text-gray-900">運営責任者</dt>
+                        <dd class="md:col-span-2 text-gray-700">西原 啓太</dd>
+                    </div>
+
+                    <!-- 所在地 -->
+                    <div class="py-5 grid grid-cols-1 md:grid-cols-3 gap-2">
+                        <dt class="font-bold text-gray-900">所在地</dt>
+                        <dd class="md:col-span-2 text-gray-700">
+                            〒039-1103<br>
+                            青森県八戸市長苗代3丁目20-17-1
+                        </dd>
+                    </div>
+
+                    <!-- お問い合わせ -->
+                    <div class="py-5 grid grid-cols-1 md:grid-cols-3 gap-2">
+                        <dt class="font-bold text-gray-900">お問い合わせ先</dt>
+                        <dd class="md:col-span-2 text-gray-700">
+                            <p class="mb-1">メールアドレス: nnnkeita@gmail.com</p>
+                            <p class="text-xs text-gray-500 italic">※お問い合わせは上記メールアドレスにて24時間受け付けております。</p>
+                        </dd>
+                    </div>
+
+                    <!-- 電話番号 -->
+                    <div class="py-5 grid grid-cols-1 md:grid-cols-3 gap-2">
+                        <dt class="font-bold text-gray-900">電話番号</dt>
+                        <dd class="md:col-span-2 text-gray-700">
+                            <p>消費者庁の指針に基づき、電話番号は請求があれば遅滞なく開示いたします。</p>
+                            <p class="text-xs text-gray-500 mt-1">ご希望の場合は上記メールアドレスまでご請求ください。</p>
+                        </dd>
+                    </div>
+
+                    <!-- 販売価格 -->
+                    <div class="py-5 grid grid-cols-1 md:grid-cols-3 gap-2">
+                        <dt class="font-bold text-gray-900">販売価格</dt>
+                        <dd class="md:col-span-2 text-gray-700 font-bold text-lg">
+                            月額 200円（税込）
+                        </dd>
+                    </div>
+
+                    <!-- 追加料金 -->
+                    <div class="py-5 grid grid-cols-1 md:grid-cols-3 gap-2">
+                        <dt class="font-bold text-gray-900">商品代金以外の必要料金</dt>
+                        <dd class="md:col-span-2 text-gray-700">
+                            サイト閲覧、コンテンツダウンロード、お問い合わせ等の際の電子メール送受信時などに、所定の通信料が発生いたします。
+                        </dd>
+                    </div>
+
+                    <!-- お支払い方法 -->
+                    <div class="py-5 grid grid-cols-1 md:grid-cols-3 gap-2">
+                        <dt class="font-bold text-gray-900">お支払い方法</dt>
+                        <dd class="md:col-span-2 text-gray-700">クレジットカード（Stripe経由）</dd>
+                    </div>
+
+                    <!-- 代金の支払時期 -->
+                    <div class="py-5 grid grid-cols-1 md:grid-cols-3 gap-2">
+                        <dt class="font-bold text-gray-900">代金の支払時期</dt>
+                        <dd class="md:col-span-2 text-gray-700">
+                            <p>初回お申し込み時は14日間の無料体験期間が適用されます。</p>
+                            <p class="mt-1">無料体験期間終了日の翌日に初回の決済が発生し、以降は1ヶ月ごとの自動更新（前払い）となります。クレジットカード決済は、各カード会社の引き落とし日となります。</p>
+                        </dd>
+                    </div>
+
+                    <!-- サービス提供時期 -->
+                    <div class="py-5 grid grid-cols-1 md:grid-cols-3 gap-2">
+                        <dt class="font-bold text-gray-900">役務の提供時期</dt>
+                        <dd class="md:col-span-2 text-gray-700">お申し込み完了後、即時にご利用いただけます。</dd>
+                    </div>
+
+                    <!-- 解約・返金 -->
+                    <div class="py-5 grid grid-cols-1 md:grid-cols-3 gap-2">
+                        <dt class="font-bold text-gray-900">解約・返金について</dt>
+                        <dd class="md:col-span-2 text-gray-700">
+                            <p class="font-bold">【解約方法】</p>
+                            <p>サービス内のマイページ（契約管理画面）よりいつでも解約手続きが可能です。次回更新日の前日までに解約いただければ、次回の請求は発生いたしません。</p>
+                            <p class="mt-2 font-bold">【返金について】</p>
+                            <p>デジタルコンテンツの性質上、決済完了後の返金・返品、および日割り計算による返金は原則として行っておりません。予めご了承ください。</p>
+                        </dd>
+                    </div>
+
+                    <!-- 動作環境 -->
+                    <div class="py-5 grid grid-cols-1 md:grid-cols-3 gap-2">
+                        <dt class="font-bold text-gray-900">動作環境</dt>
+                        <dd class="md:col-span-2 text-gray-700">
+                            iOS、Android、Windows、Macの主要ブラウザ（Safari、Chrome、Edge等）の最新版でご利用いただけます。
+                        </dd>
+                    </div>
+                </dl>
+            </div>
+
+            <!-- Footer Links -->
+            <div class="bg-gray-50 px-8 py-6 border-t border-gray-100 text-xs text-gray-500 flex flex-wrap gap-6 justify-center">
+                <a class="text-blue-600 hover:underline" href="/terms">利用規約</a>
+                <a class="text-blue-600 hover:underline" href="/privacy">プライバシーポリシー</a>
+                <p>&copy; 2024 西原 啓太</p>
+            </div>
+        </div>
+
+        <div class="mt-6 text-center text-xs text-gray-400">
+            <p>※本ページの内容は、予告なく変更される場合があります。</p>
+        </div>
+    </div>
+</body>
+</html>
