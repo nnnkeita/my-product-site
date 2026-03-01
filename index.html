@@ -277,6 +277,8 @@
     const email = prompt('メールアドレスを入力してください:');
     if (!email) return;
 
+    console.log('🔄 Checkout starting...', { appName, email, apiUrl: API_URL });
+
     try {
       const response = await fetch(API_URL + '/api/checkout', {
         method: 'POST',
@@ -289,15 +291,31 @@
         }),
       });
 
+      console.log('📡 API Response:', response.status, response.statusText);
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        console.error('❌ API Error Response:', response.status, errorText);
+        alert(`エラー (${response.status}): ${errorText || 'チェックアウトが失敗しました'}`);
+        return;
+      }
+
       const data = await response.json();
+      console.log('✅ API Response data:', data);
+
       if (data.url) {
+        console.log('🔗 Redirecting to Stripe:', data.url);
         window.location.href = data.url;
+      } else if (data.error) {
+        console.error('❌ API Error:', data.error);
+        alert('エラー: ' + data.error);
       } else {
-        alert('エラー: ' + (data.error || 'チェックアウトが失敗しました'));
+        console.error('❌ No URL in response:', data);
+        alert('エラー: チェックアウトURLが返されませんでした');
       }
     } catch (error) {
-      console.error('Checkout error:', error);
-      alert('接続エラーが発生しました。しばらく後に再度お試しください。');
+      console.error('❌ Checkout fetch error:', error);
+      alert('接続エラー: ' + error.message + '\nブラウザのコンソール（F12）を確認してください。');
     }
   }
 
