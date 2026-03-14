@@ -217,6 +217,56 @@
           </ul>
           <a class="btn" href="https://apps.apple.com/jp/app/%E5%BB%BA%E7%89%A9%E6%A4%9C%E6%9F%BB%E3%83%AC%E3%83%9D%E3%83%BC%E3%83%88/id6754168899" target="_blank" style="margin-top:auto">App Store で表示</a>
         </article>
+
+        <!-- RunTrack -->
+        <article class="card">
+          <div class="price-tag">¥100<small>iPhone Watch</small></div>
+          <span class="chip" style="width:fit-content">🏃 ランニング</span>
+          <h3>RunTrack</h3>
+          <p class="ghost">ランニングの距離・ペース・カロリーをリアルタイム記録。Apple Watch 対応で手首から完結。</p>
+          <ul class="list">
+            <li>✓ GPS距離・ペース・カロリー計測</li>
+            <li>✓ Apple Watch 対応</li>
+            <li>✓ 走行履歴グラフ表示</li>
+            <li>✓ <strong style="color:#2b7cff">kioku journal と連携</strong> — 走った日の記録を日記に自動追記</li>
+          </ul>
+          <div class="note tiny">kioku journal と組み合わせると「今日のラン」が日報・体調ログに自動で紐づきます。</div>
+          <a class="btn" href="https://apps.apple.com/jp/app/runtrack/id6747077449" target="_blank" style="margin-top:auto">App Store で表示</a>
+        </article>
+
+        <!-- GymTrack -->
+        <article class="card">
+          <div class="price-tag">¥100<small>iPhone iPad</small></div>
+          <span class="chip" style="width:fit-content">💪 筋トレ</span>
+          <h3>GymTrack</h3>
+          <p class="ghost">ジムでのトレーニングを種目・セット・重量でかんたん記録。成長を数値で実感。</p>
+          <ul class="list">
+            <li>✓ 種目・セット数・重量を記録</li>
+            <li>✓ トレーニング統計グラフ</li>
+            <li>✓ ワークアウト履歴管理</li>
+            <li>✓ <strong style="color:#2b7cff">kioku journal と連携</strong> — 当日の筋トレサマリーを日記に自動追記</li>
+          </ul>
+          <div class="note tiny">kioku journal と使えば「体重・食事・トレーニング」を一冊の日記にまとめて管理できます。</div>
+          <a class="btn" href="https://apps.apple.com/jp/app/gymtrack/id6743378960" target="_blank" style="margin-top:auto">App Store で表示</a>
+        </article>
+
+        <!-- SPC メール自動送信 -->
+        <article class="card">
+          <div class="price-tag">¥500<small>税込</small></div>
+          <span class="chip" style="width:fit-content">📧 メール自動化</span>
+          <h3>SPC メール自動送信</h3>
+          <p class="ghost">条件をセットするだけで、定型メールを自動送信。送信履歴はログで確認でき、誤送信も防止。</p>
+          <ul class="list">
+            <li>✓ スケジュール・条件トリガー送信</li>
+            <li>✓ テンプレート管理（複数件対応）</li>
+            <li>✓ 送信ログ保存（失敗時アラート）</li>
+            <li>✓ Gmail / SMTP 対応</li>
+          </ul>
+          <div style="display:flex;gap:8px;margin-top:auto">
+            <button class="btn secondary" style="flex:1" onclick="downloadApp('SPCMail')">無料ダウンロード</button>
+            <button class="btn" style="flex:1" onclick="openCheckout('SPCMail')">Pro解除 ¥500</button>
+          </div>
+        </article>
       </div>
 
       <p class="note tiny">※ すべてローカル実行。機密データは外部送信しません（設定で通信遮断可）。</p>
@@ -337,6 +387,7 @@
       'DesktopOrganizer': 'https://github.com/nnnkeita/my-product-site/releases/download/v1.0.0/DesktopOrganizer2.zip',
       'KiokuJournal': '#',
       'ImageDigest': '#',
+      'SPCMail': '#',
     };
     
     const url = links[appName];
