@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>1日5分を短縮 — 年間1,250分の生産性アップ | N-Productivity Apps</title>
-  <meta name="description" content="“1日5分を短縮”シリーズ。フォルダ整理、HEIC→JPEG変換、メール自動転送、リネーム、Web自動入力など。すべて一律 ¥500 / $5。">
+  <title>kioku journal | 続く日記・業務ログを月500円で</title>
+  <meta name="description" content="kioku journalは、日記・日報・読書・体重・筋トレを今日の1ページにまとめる記録ジャーナルです。無料で始めて、Proは月500円。">
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-9RNP2H92DL"></script>
@@ -21,7 +21,7 @@
   <style>
     :root{
       --bg:#f7f9fc; --panel:#fff; --text:#10131a; --muted:#5c6f82;
-      --brand:#2b7cff; --ring:rgba(43,124,255,.25);
+      --brand:#2f6f5e; --brand2:#2b7cff; --gold:#c88719; --coral:#e2674f; --ring:rgba(47,111,94,.25);
       --shadow:0 16px 36px rgba(0,0,0,.08); --radius:18px; --maxw:1160px;
     }
     *{box-sizing:border-box}
@@ -48,13 +48,54 @@
     .btn.ghost{background:transparent;border:1px solid #e3eaf7;color:var(--text)}
 
     /* Hero */
-    .hero{padding:72px 0 40px;background:
-      radial-gradient(1200px 560px at 90% -20%,rgba(136,201,255,.18),transparent 60%),
-      radial-gradient(900px 520px at 0% 0%,rgba(43,124,255,.12),transparent 60%)}
-    h1{font-size:clamp(30px,5vw,52px);line-height:1.15;margin:.3em 0}
+    .hero{padding:72px 0 48px;background:
+      radial-gradient(1100px 520px at 88% -10%,rgba(47,111,94,.18),transparent 60%),
+      radial-gradient(880px 520px at 0% 0%,rgba(200,135,25,.13),transparent 60%)}
+    .hero-layout{display:grid;grid-template-columns:minmax(0,1fr) minmax(340px,.92fr);align-items:center;gap:34px}
+    @media (max-width:900px){.hero-layout{grid-template-columns:1fr}}
+    h1{font-size:clamp(34px,5.2vw,64px);line-height:1.08;margin:.3em 0;letter-spacing:0}
     .lead{font-size:clamp(16px,2.2vw,20px);color:var(--muted)}
     .badge{display:inline-flex;gap:.4em;align-items:center;padding:.34em .75em;border-radius:999px;color:#fff;background:var(--brand);font-weight:700}
     .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
+
+    .journal-visual{background:#fff;border:1px solid #e6ecf7;border-radius:18px;box-shadow:var(--shadow);overflow:hidden}
+    .visual-bar{height:38px;background:#f4f7fb;border-bottom:1px solid #e6ecf7;display:flex;align-items:center;gap:7px;padding:0 14px}
+    .dot{width:10px;height:10px;border-radius:999px;background:var(--coral)}
+    .dot:nth-child(2){background:var(--gold)}
+    .dot:nth-child(3){background:var(--brand)}
+    .journal-screen{display:grid;grid-template-columns:132px 1fr;min-height:438px}
+    .journal-side{background:#f9fafb;border-right:1px solid #e6ecf7;padding:16px 10px;display:grid;gap:8px;align-content:start}
+    .side-line{height:30px;border:1px solid #e6ecf7;border-radius:10px;background:#fff}
+    .side-line.active{background:#eaf4ef;border-color:#cce1d7}
+    .journal-page{padding:24px}
+    .date-label{font-size:.9rem;color:var(--brand);font-weight:900}
+    .journal-page h3{font-size:28px;margin:6px 0 14px}
+    .record-block{border:1px solid #e6ecf7;border-radius:14px;padding:14px;margin:10px 0;background:#fff}
+    .record-title{font-size:.82rem;color:var(--muted);font-weight:900;margin-bottom:8px}
+    .skeleton{height:10px;border-radius:999px;background:#e9eef5;margin:8px 0}
+    .skeleton.short{width:68%}
+    .metric-row{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+    .metric{min-height:68px;border-radius:14px;color:#fff;font-weight:900;padding:10px;background:var(--brand2)}
+    .metric:nth-child(2){background:var(--brand)}
+    .metric:nth-child(3){background:var(--gold)}
+    .metric small{display:block;font-weight:700;opacity:.85}
+    @media (max-width:520px){.journal-screen{grid-template-columns:1fr}.journal-side{display:none}.metric-row{grid-template-columns:1fr}}
+
+    .sales-band{background:#fff}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:stretch}
+    @media (max-width:860px){.split{grid-template-columns:1fr}}
+    .panel{background:#fff;border:1px solid #e6ecf7;border-radius:18px;padding:22px;box-shadow:var(--shadow)}
+    .panel.dark{background:#10131a;color:#fff;border-color:#10131a}
+    .panel.dark .ghost,.panel.dark .list{color:#d7dde8}
+    .price{display:flex;align-items:baseline;gap:8px;font-size:42px;font-weight:900;line-height:1;margin:12px 0}
+    .price span{font-size:.95rem;color:var(--muted)}
+    .panel.dark .price span{color:#d7dde8}
+    .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:12px}
+    @media (max-width:900px){.flow{grid-template-columns:repeat(2,1fr)}}
+    @media (max-width:560px){.flow{grid-template-columns:1fr}}
+    .step{background:#fff;border:1px solid #e6ecf7;border-radius:16px;padding:16px}
+    .step strong{display:block;color:var(--brand);margin-bottom:6px}
+    .notice{background:#fff9ed;border:1px solid #f3d49c;border-radius:14px;padding:12px 14px;color:#60410c}
 
     /* Sections */
     section{padding:54px 0}
@@ -64,7 +105,7 @@
     @media (max-width:980px){.grid{grid-template-columns:repeat(2,1fr)}}
     @media (max-width:640px){.grid{grid-template-columns:1fr}}
     .card{position:relative;background:#fff;border-radius:18px;padding:20px 18px 18px;border:1px solid #e6ecf7;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px}
-    .chip{display:inline-flex;gap:.35em;align-items:center;border-radius:999px;background:rgba(43,124,255,.08);border:1px solid var(--ring);color:var(--brand);font-weight:700;font-size:.85rem;padding:.25em .6em}
+    .chip{display:inline-flex;gap:.35em;align-items:center;border-radius:999px;background:rgba(47,111,94,.08);border:1px solid var(--ring);color:var(--brand);font-weight:700;font-size:.85rem;padding:.25em .6em}
     .list{list-style:none;margin:8px 0 0;padding:0;display:grid;gap:6px;color:var(--muted)}
     .price-tag{position:absolute;top:12px;right:12px;border-radius:10px;padding:.25em .6em;background:#0f1b3d;color:#fff;font-weight:800;font-size:.85rem;letter-spacing:.02em}
     .price-tag small{opacity:.8;font-weight:700;margin-left:.25em}
@@ -87,10 +128,10 @@
   <div class="wrap nav">
     <div class="brand"><div class="brand-icon">N</div><span>N-Productivity</span></div>
     <nav>
+      <a href="#kioku" class="ghost">kioku journal</a>&nbsp;&nbsp;
       <a href="#apps" class="ghost">アプリ一覧</a>&nbsp;&nbsp;
-      <a href="#why" class="ghost">選ばれる理由</a>&nbsp;&nbsp;
       <a href="#faq" class="ghost">FAQ</a>&nbsp;&nbsp;
-      <a class="btn" href="#apps">ダウンロード</a>
+      <a class="btn" href="https://nnnkeita.pythonanywhere.com/">無料で始める</a>
     </nav>
   </div>
 </header>
@@ -98,21 +139,113 @@
 <main>
   <!-- Hero -->
   <section class="hero">
+    <div class="wrap hero-layout">
+      <div>
+        <span class="badge">kioku journal 販売開始</span>
+        <h1>続く日記を、仕事と健康の記録帳に。</h1>
+        <p class="lead">
+          <strong>kioku journal</strong> は、日記・日報・読書・体重・筋トレを「今日の1ページ」にまとめる記録ジャーナルです。
+          無料で始めて、Proは <strong>月500円</strong>。毎日の小さなメモを、あとで使える資産に変えます。
+        </p>
+        <div class="kpis">
+          <div class="kpi"><div class="n">1ページ</div><div class="tiny">日記・日報・健康を統合</div></div>
+          <div class="kpi"><div class="n">テンプレート</div><div class="tiny">何を書くか迷わない</div></div>
+          <div class="kpi"><div class="n">月500円</div><div class="tiny">Pro機能を解除</div></div>
+        </div>
+        <div class="cta">
+          <a class="btn" href="https://nnnkeita.pythonanywhere.com/">無料で記録を始める</a>
+          <a class="btn secondary" href="https://nnnkeita.pythonanywhere.com/billing">Proを月500円で始める</a>
+          <a class="btn ghost" href="#kioku">詳しく見る</a>
+        </div>
+      </div>
+
+      <div class="journal-visual" aria-label="kioku journal の画面イメージ">
+        <div class="visual-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+        <div class="journal-screen">
+          <div class="journal-side">
+            <div class="side-line active"></div>
+            <div class="side-line"></div>
+            <div class="side-line"></div>
+            <div class="side-line"></div>
+          </div>
+          <div class="journal-page">
+            <div class="date-label">2026年6月24日 水曜日</div>
+            <h3>今日の記録</h3>
+            <div class="record-block">
+              <div class="record-title">今日の感謝日記</div>
+              <div class="skeleton"></div><div class="skeleton short"></div>
+            </div>
+            <div class="record-block">
+              <div class="record-title">仕事ログ</div>
+              <div class="skeleton"></div><div class="skeleton"></div><div class="skeleton short"></div>
+            </div>
+            <div class="metric-row">
+              <div class="metric"><small>体重</small>67.5kg</div>
+              <div class="metric"><small>筋トレ</small>3種目</div>
+              <div class="metric"><small>読書</small>12分</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- kioku journal sales -->
+  <section id="kioku" class="sales-band">
     <div class="wrap">
-      <span class="badge">1日5分を短縮 → 年間1,250分</span>
-      <h1>“1日5分を短縮” シリーズ。<br>小さな自動化で、大きな余白を。</h1>
-      <p class="lead">
-        毎日のちょっと面倒をアプリで解決。<strong>すべて一律 ¥500 / $5</strong>。必要なものだけ選んで導入できます。
-      </p>
-      <div class="kpis">
-        <div class="kpi"><div class="n">Windows / macOS</div><div class="tiny">両対応</div></div>
-        <div class="kpi"><div class="n">軽量ネイティブ</div><div class="tiny">サクサク起動</div></div>
-        <div class="kpi"><div class="n">ログ保存</div><div class="tiny">再現性と安心</div></div>
+      <span class="chip">📓 記録ジャーナル</span>
+      <h2>日記が続かなかった人ほど、使いやすい。</h2>
+      <p class="lead">空白のページに向き合うのではなく、今日の記録をテンプレートで埋めていく設計です。仕事、体調、読書、運動を同じ日付で見返せます。</p>
+
+      <div class="grid" style="margin-top:18px">
+        <article class="card">
+          <h3>何を書くかで止まらない</h3>
+          <p class="ghost">今日の記録、日報、読書メモ、会議メモ、体重、筋トレなどをブロックで追加できます。</p>
+        </article>
+        <article class="card">
+          <h3>健康データも一緒に残せる</h3>
+          <p class="ghost">体重やHealth Planet連携、ランニング・筋トレ連携を同じ日のページにまとめられます。</p>
+        </article>
+        <article class="card">
+          <h3>あとで探せる記録になる</h3>
+          <p class="ghost">検索、テンプレート、インポート/エクスポートで、毎日のメモを使える知識に変えます。</p>
+        </article>
       </div>
-      <div class="cta">
-        <a class="btn" href="#apps">アプリを見る</a>
-        <a class="btn secondary" href="#faq">よくある質問</a>
+
+      <div class="flow">
+        <div class="step"><strong>1. 無料で始める</strong><span class="ghost">今日のページを作り、まず1日分だけ記録。</span></div>
+        <div class="step"><strong>2. ログインで保存</strong><span class="ghost">アカウントに紐付けて、記録を守る。</span></div>
+        <div class="step"><strong>3. Proを解除</strong><span class="ghost">月500円でテンプレート・連携・管理機能を拡張。</span></div>
+        <div class="step"><strong>4. 毎日見返す</strong><span class="ghost">体調、行動、仕事の変化を日付で追える。</span></div>
       </div>
+
+      <div class="split" style="margin-top:18px">
+        <article class="panel">
+          <h3>無料プラン</h3>
+          <p class="ghost">まずは日記・日報として使い始めたい方向け。</p>
+          <div class="price">¥0<span>/ ずっと</span></div>
+          <ul class="list">
+            <li>✓ 今日の記録ページ</li>
+            <li>✓ 基本テンプレート</li>
+            <li>✓ ログイン保存</li>
+          </ul>
+          <div class="cta"><a class="btn secondary" href="https://nnnkeita.pythonanywhere.com/">無料で試す</a></div>
+        </article>
+        <article class="panel dark">
+          <h3>Pro</h3>
+          <p class="ghost">仕事・健康・読書・運動までまとめたい方向け。</p>
+          <div class="price">¥500<span>/ 月</span></div>
+          <ul class="list">
+            <li>✓ カスタムテンプレート</li>
+            <li>✓ インポート/エクスポート</li>
+            <li>✓ Health Planet 連携</li>
+            <li>✓ RunTrack / GymTrack 連携導線</li>
+          </ul>
+          <div class="cta"><a class="btn" href="https://nnnkeita.pythonanywhere.com/billing">Proを始める</a><a class="btn secondary" href="commerce.html">販売条件を見る</a></div>
+        </article>
+      </div>
+
+      <p class="notice tiny" style="margin-top:18px">購入・契約管理は kioku journal アプリ内のログイン後画面で行います。決済はStripe経由、特定商取引法・利用規約・プライバシーポリシーを確認した上でお申し込みください。</p>
     </div>
   </section>
 
@@ -155,7 +288,7 @@
             <li>✓ 実行ログ保存</li>
           </ul>
           <div style="display:flex;gap:8px;margin-top:auto">
-            <a href="index2.html" class="btn secondary" style="flex:1;text-align:center">詳細</a>
+            <a href="https://keitanova.gumroad.com/l/uvvio" class="btn secondary" style="flex:1;text-align:center" target="_blank">詳細</a>
             <a href="https://keitanova.gumroad.com/l/uvvio" class="btn" style="flex:1;text-align:center" target="_blank">購入・ダウンロード</a>
           </div>
         </article>
@@ -163,16 +296,18 @@
         <!-- kioku journal -->
         <article class="card">
           <div class="price-tag">¥500/月<small>税込</small></div>
+          <span class="chip" style="width:fit-content">📓 販売中</span>
           <h3>kioku journal</h3>
-          <p class="ghost">日々の記録を簡潔に。定型フォーマットで毎日の業務ログ・日報を自動整理。</p>
+          <p class="ghost">日記・日報・読書・体重・筋トレを「今日の1ページ」にまとめる記録ジャーナル。</p>
           <ul class="list">
-            <li>✓ テンプレート機能</li>
-            <li>✓ 検索可能</li>
-            <li>✓ 自動バックアップ</li>
+            <li>✓ 今日の記録テンプレート</li>
+            <li>✓ 検索・インポート/エクスポート</li>
+            <li>✓ Health Planet 連携</li>
+            <li>✓ <strong style="color:#2f6f5e">無料開始 → Pro月500円</strong></li>
           </ul>
           <div style="display:flex;gap:8px;margin-top:auto">
-            <button class="btn secondary" style="flex:1" onclick="downloadApp('KiokuJournal')">無料ダウンロード</button>
-            <button class="btn" style="flex:1" onclick="openCheckout('KiokuJournal')">Pro解除 ¥500</button>
+            <a class="btn secondary" style="flex:1;text-align:center" href="https://nnnkeita.pythonanywhere.com/">無料で始める</a>
+            <a class="btn" style="flex:1;text-align:center" href="https://nnnkeita.pythonanywhere.com/billing">Pro購入</a>
           </div>
         </article>
 
@@ -305,6 +440,10 @@
   <section id="faq">
     <div class="wrap">
       <h2>FAQ</h2>
+      <details class="card" open><summary>kioku journal は無料で使えますか？</summary><p>はい。まずは無料で今日の記録を作れます。Proはテンプレート保存、連携、インポート/エクスポートなどを本格的に使いたい方向けです。</p></details>
+      <details class="card"><summary>kioku journal Pro はどこから購入できますか？</summary><p><a href="https://nnnkeita.pythonanywhere.com/billing" style="color:#2f6f5e;text-decoration:underline">Pro購入・契約管理画面</a>からお申し込みできます。ログイン後、契約状態の確認も同じ画面で行えます。</p></details>
+      <details class="card"><summary>ログインはなぜ必要ですか？</summary><p>個人の記録を安全に保存し、別端末や再ログイン時にも復元できるようにするためです。ログインは「課金のため」ではなく「記録を守るため」の導線として用意しています。</p></details>
+      <details class="card"><summary>解約できますか？</summary><p>はい。kioku journalの契約管理画面から解約できます。次回更新日前に解約すれば、次回請求は発生しません。詳細は<a href="commerce.html" style="color:#2f6f5e;text-decoration:underline">特定商取引法に基づく表記</a>をご確認ください。</p></details>
       <details class="card"><summary>なぜ「1日5分」？</summary><p>5分/日 × 250営業日 = 1,250分（約21時間）。小さな自動化を積み上げると、確かな余白になります。</p></details>
       <details class="card"><summary>価格は本当に一律？</summary><p>はい、すべての単体アプリは <strong>¥500 / $5</strong> のフラット価格です（税込）。</p></details>
       <details class="card"><summary>社内セキュリティは？</summary><p>ローカル実行で機密データは外部送信しません（設定で通信遮断可）。ログは端末内に保存。</p></details>
