@@ -39,6 +39,11 @@
     .brand{display:flex;align-items:center;gap:10px;font-weight:800}
     .brand-icon{width:28px;height:28px;border-radius:9px;display:grid;place-items:center;background:var(--brand);color:#fff;font-weight:900}
     .ghost{opacity:.75}
+    @media (max-width:640px){
+      .nav nav{display:flex;align-items:center}
+      .nav nav .ghost{display:none}
+      .nav .btn{padding:.7em .9em}
+    }
 
     /* Buttons */
     .btn{display:inline-flex;align-items:center;gap:.6em;padding:.85em 1.15em;border-radius:14px;
@@ -113,6 +118,9 @@
     .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:12px}
     .kpi{padding:12px;border-radius:14px;background:#fff;border:1px solid #e6ecf7;text-align:center}
     .kpi .n{font-weight:900}
+    .view-counter{display:inline-flex;align-items:center;gap:8px;margin-top:14px;color:var(--muted);font-size:.88rem}
+    .view-counter::before{content:"";width:7px;height:7px;border-radius:50%;background:#2f6f5e}
+    .view-counter strong{color:var(--text);font-variant-numeric:tabular-nums}
 
     .note{border-left:4px solid var(--brand);padding-left:10px;margin-top:10px}
 
@@ -156,6 +164,9 @@
           <a class="btn" href="https://nnnkeita.pythonanywhere.com/">無料で記録を始める</a>
           <a class="btn secondary" href="https://nnnkeita.pythonanywhere.com/billing">Proを月500円で始める</a>
           <a class="btn ghost" href="#kioku">詳しく見る</a>
+        </div>
+        <div class="view-counter" aria-live="polite">
+          この販売ページの閲覧数 <strong id="page-view-count">集計中</strong>
         </div>
       </div>
 
@@ -445,14 +456,14 @@
       <details class="card"><summary>ログインはなぜ必要ですか？</summary><p>個人の記録を安全に保存し、別端末や再ログイン時にも復元できるようにするためです。ログインは「課金のため」ではなく「記録を守るため」の導線として用意しています。</p></details>
       <details class="card"><summary>解約できますか？</summary><p>はい。kioku journalの契約管理画面から解約できます。次回更新日前に解約すれば、次回請求は発生しません。詳細は<a href="commerce.html" style="color:#2f6f5e;text-decoration:underline">特定商取引法に基づく表記</a>をご確認ください。</p></details>
       <details class="card"><summary>なぜ「1日5分」？</summary><p>5分/日 × 250営業日 = 1,250分（約21時間）。小さな自動化を積み上げると、確かな余白になります。</p></details>
-      <details class="card"><summary>価格は本当に一律？</summary><p>はい、すべての単体アプリは <strong>¥500 / $5</strong> のフラット価格です（税込）。</p></details>
-      <details class="card"><summary>社内セキュリティは？</summary><p>ローカル実行で機密データは外部送信しません（設定で通信遮断可）。ログは端末内に保存。</p></details>
+      <details class="card"><summary>kioku journal Proの料金は？</summary><p><strong>月額500円</strong>です。ほかの単体アプリとは別の月額サービスで、契約期間中はPro機能をご利用いただけます。</p></details>
+      <details class="card"><summary>記録データはどこに保存されますか？</summary><p>ログインしたアカウントに紐づけてサーバーへ保存し、再ログイン時にも記録を呼び出せます。データの取り扱いは<a href="privacy.html" style="color:#2f6f5e;text-decoration:underline">プライバシーポリシー</a>をご確認ください。</p></details>
       <details class="card"><summary>サポートは？</summary><p>メールでの通常サポートを提供します。法人向けは優先対応・配布ポリシー設定も可（別料金）。</p></details>
       
       <h3 style="margin-top:36px">販売について</h3>
       <details class="card"><summary>支払い方法は？</summary><p>クレジットカードによる決済です（Stripe経由）。対応カード：Visa、Mastercard、American Express 等。</p></details>
-      <details class="card"><summary>購入後はいつから使える？</summary><p>購入完了後、即座にアプリをダウンロード・インストールしてご利用いただけます。</p></details>
-      <details class="card"><summary>返金・返品は可能？</summary><p>デジタルコンテンツの性質上、購入確定後の返金・返品はできません。ご了承の上、ご購入ください。キャンセルご希望の場合は、サポートメール（nnnkeita@gmail.com）までご相談ください。</p></details>
+      <details class="card"><summary>契約後はいつから使えますか？</summary><p>決済完了後、同じアカウントでkioku journalを開くとPro機能をご利用いただけます。ダウンロードやインストールは必要ありません。</p></details>
+      <details class="card"><summary>解約・返金について教えてください</summary><p>解約は契約管理画面から行え、次回更新日以降の請求を停止できます。サービスの性質上、決済済み期間の料金は原則として返金できません。決済上の問題はサポートメール（nnnkeita@gmail.com）までご相談ください。</p></details>
       <details class="card"><summary>事業者情報は？</summary><p><strong>販売事業者：</strong>西原 啓太<br><strong>所在地：</strong>〒039-1103 青森県八戸市長苗代3丁目20-17-1<br><strong>メール：</strong>nnnkeita@gmail.com<br>詳細は<a href="commerce.html" style="color:#2b7cff;text-decoration:underline">特定商取引法に基づく表記</a>をご覧ください。</p></details>
     </div>
   </section>
@@ -487,6 +498,34 @@
       if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth'}); history.pushState(null,'','#'+id); }
     });
   });
+
+  async function updatePageViewCount() {
+    const counter = document.getElementById('page-view-count');
+    if (!counter) return;
+
+    const isPublicPage = location.hostname === 'nnnkeita.github.io';
+    if (!isPublicPage) {
+      counter.textContent = '公開後に表示';
+      return;
+    }
+
+    const endpoint = 'https://api.counterapi.dev/v1/nnnkeita-my-product-site/kioku-journal-page-views';
+    const sessionKey = 'kioku-journal-page-view-counted';
+    const action = sessionStorage.getItem(sessionKey) ? '' : '/up';
+
+    try {
+      const response = await fetch(endpoint + action, { cache: 'no-store' });
+      if (!response.ok) throw new Error('Counter request failed');
+
+      const data = await response.json();
+      counter.textContent = Number(data.count).toLocaleString('ja-JP') + ' 回';
+      sessionStorage.setItem(sessionKey, '1');
+    } catch (error) {
+      counter.textContent = '取得できませんでした';
+    }
+  }
+
+  updatePageViewCount();
 
   // API settings
   const API_URL = 'https://n-productivity-api.vercel.app';
